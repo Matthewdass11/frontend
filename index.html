@@ -5,29 +5,81 @@
   <title>Satellite Analyzer</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 30px;
+      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       background: #f9f9f9;
     }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
     #output {
       margin-top: 20px;
       white-space: pre-wrap;
-      padding: 10px;
+      padding: 15px;
       border: 1px solid #ccc;
-      background: #fff;
+      background: #fdfdfd;
+      border-radius: 5px;
+      font-family: monospace;
     }
   </style>
 </head>
 <body>
 
-  <h2>Upload Satellite Image</h2>
+  <div class="container">
+    <h2>Upload Satellite Image</h2>
 
-  <form id="uploadForm">
-    <input type="file" id="fileInput" name="image" accept="image/*" required />
-    <button type="submit">Analyze</button>
-  </form>
+    <form id="uploadForm">
+      <input type="file" id="fileInput" name="image" accept="image/*" required />
+      <button type="submit">Analyze</button>
+    </form>
 
-  <div id="output">Results will appear here</div>
+    <div id="output">Results will appear here</div>
+  </div>
 
   <script>
     document.getElementById("uploadForm").addEventListener("submit", async function(e) {
